@@ -1,6 +1,6 @@
 image:
   repository: austinmel8131/t-machine
-  tag: 7f6f161
+  tag: 2b974d5
   pullpolicy: IfNotPresent
 service:
   type: ClusterIP
