@@ -28,5 +28,15 @@ jobs:
       - name: push to Dockerhub
         run: |
           docker push austinmel8131/t-machine:${{ env.SHORT_SHA }}
+      - name: Configure Git Author
+        run: |
+          git config --local user.email "austinmel8131@gmail.com"
+          git config --local user.name "austinmel"
+      - name: Update Helm Chart with new image tag
+        run: |
+          sed -i s/tag:.*/tag: ${{ env.SHORT_SHA }}/" ./t-machine-project/values.yaml
+          git add ./t-machine-project/values.yaml
+          git commit -m "updated image tag to ${{ env.SHORT_SHA }}"
+          git push 
 
 

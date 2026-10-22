@@ -1,0 +1,13 @@
+image:
+  repository: austinmel8131/t-machine
+  tag: latest
+  pullpolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 8080
+ingress:
+  enable: false
+serviceAccount: 
+  enable: false
+autoscaling:
+  enable: false
