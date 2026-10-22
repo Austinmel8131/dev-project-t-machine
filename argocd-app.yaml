@@ -1,16 +1,16 @@
-apiVersion: argoproj.io/v1aplha1
+apiVersion: argoproj.io/v1alpha1
 kind: Application
-Metadata:
+metadata:                
   name: t-machine-project
   namespace: argocd
-specs:
+spec:                   
   project: default
   source:
     repoURL: "https://github.com/Austinmel8131/dev-project-t-machine"
-    targetRevision: Head
+    targetRevision: HEAD     
     path: t-machine-project
   destination:
-    server: "https//kubernetes.default.svc"
+    server: "https://default.svc" 
     namespace: default
   syncPolicy:
     automated:
