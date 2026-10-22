@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1aplha1
+kind: Application
+Metadata:
+  name: t-machine-project
+  namespace: argocd
+specs:
+  project: default
+  source:
+    repoURL: "https://github.com/Austinmel8131/dev-project-t-machine"
+    targetRevision: Head
+    path: t-machine-project
+  destination:
+    server: "https//kubernetes.default.svc"
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
